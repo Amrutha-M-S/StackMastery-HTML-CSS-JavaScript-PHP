@@ -1,0 +1,187 @@
+<!--
+1) Map the images using HTML image mapping with the proper title such as (5 marks)
+Note: Use title property for <area> tag
+Sun: Ball of Fire 
+Venus: Morning Star 
+Earth: Blue planet 
+Jupiter: Largest planet 
+Saturn: Ring Planet 
+Pluto: Dwarf Planet
+My Space: Your Name and Register No.
+
+Display the details of earth and sun in new web pages by providing appropriate hotspots and links. 
+Include media elements about sun (Audio, Video) on the sun page and graphic elements (SVG or Canvas) about earth on the earth page. 
+Also provide appropriate link to My space to HTML form page (Qn.2)
+-->
+
+<!--Solar system:-->
+<html>
+    
+<head>
+    <title>Amrutha MS</title>
+</head>
+
+<body>
+    <center>
+        <img src="solar.jpg" alt="space" usemap="#spacemap">
+        <map name="spacemap">
+            <area shape="circle" coords="0, 355, 165" href="sun.html" target="_blank" title="Ball of fire">
+            <area shape="circle" coords="279, 250, 40.5" href="earth.html" target="_blank" title="Blue Planet">
+            <area shape="circle" coords="384, 184, 54.5" target="_blank" title="Largest Planet">
+            <area shape="circle" coords="172, 185, 23.5" target="_blank" title="Morning Star">
+            <area shape="circle" coords="481, 277, 28.5" target="_blank" title="Ring Planet">
+            <area shape="circle" coords="582, 57, 14.5" target="_blank" title="Dwarf Planet">
+            <area shape="rect" coords="0, 0, 158, 41" href="" target="_blank" title="MY SPACE">
+        </map>
+    </center>
+</body>
+
+</html>
+
+<!-- Sun:-->
+<html >
+<head>
+    <title>Sun</title>
+</head>
+
+<body>
+    <h1>Sun - The blazing ball of fire</h1>
+    <img alt="Sun" class="" data-mptype="image"
+        src="https://ak.picdn.net/shutterstock/videos/10325126/thumb/1.jpg&amp;h=210">
+    <p>
+        The The Sun is the star at the center of the Solar System. It is a nearly perfect ball of hot plasma,<br>
+         heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as light, <br>
+         ultraviolet, and infrared radiation. It is the most important source of energy for life on Earth. <br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2HoTK_Gqi2Q" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</body>
+
+</html>
+
+<!--Earth:-->
+<html>
+<head>
+    <title>20BCE1665</title>
+</head>
+<body>
+    <h1 style="font-family:courier; color:blue;" >Earth - The Blue Planet</h1>
+    <div>
+        <svg width="200px" height="200px" role="img" viewBox="0 0 24 24" xmlns=" http://www.w3.org/2000/svg">
+            <title>Earth</title>
+            <path
+                d="M12 0c-1.326 0-2.597.22-3.787.613 4.94-1.243 8.575 1.72 11.096 5.606 1.725 2.695 2.813 2.83 4.207 2.412A11.956 11.956 0 0012 0zM7.658 2.156c-1.644.019-3.295.775-4.931 2.207A11.967 11.967 0 000 12c.184-2.823 2.163-5.128 4.87-5.07 2.104.044 4.648 1.518 7.13 5.289 4.87 7.468 10.917 5.483 11.863 1.51.081-.566.137-1.14.137-1.729 0-.176-.02-.347-.027-.521-1.645 1.725-4.899 2.35-8.264-2.97-2.59-4.363-5.31-6.383-8.05-6.353zM3.33 13.236c-1.675.13-2.657 1.804-2.242 3.756A11.955 11.955 0 0012 24c4.215 0 7.898-2.149 10.037-5.412v-.043c-2.836 3.49-8.946 4.255-13.855-2.182-1.814-2.386-3.544-3.228-4.852-3.127Z" />
+        </svg>
+    </div>
+    <p>
+        Earth is the third planet from the Sun and the only astronomical object known to harbor life. While large
+        volumes of water can be found throughout the Solar System, only Earth sustains liquid surface water. About 71%
+        of Earth's surface is made up of the ocean, dwarfing Earth's polar ice, lakes, and rivers. The remaining 29% of
+        Earth's surface is land, consisting of continents and islands. Earth's surface layer is formed of several slowly
+        moving tectonic plates, interacting to produce mountain ranges, volcanoes, and earthquakes. Earth's liquid outer
+        core generates the magnetic field that shapes Earth's magnetosphere, deflecting destructive solar winds.
+    </p>
+</body>
+
+</html>
+
+<!--My Space:-->
+<html>
+<head>
+    <title>My Space</title>
+</head>
+<body>
+    <h1><b>Amrutha MS</b></h1>
+</body>
+</html>
+
+<!--2) Create a resume page below using HTML5 extended form elements -->
+
+<html>
+    <head>
+        <title>2</title>
+    </head>
+    <body>
+        <fieldset><legend style="color:red;">Personal Details.</legend><br><br>
+        Name : <input type="text"><br><br>
+        Password : <input type="password"><br><br>
+        E-mail id : <input type="text"><br><br>
+        Gender : <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female<br><br>
+        DOB : <input type="date"><br><br>
+        Mobile# : <input type="text"></fieldset><br><br><br>
+    
+        <fieldset><legend style="color:red;">Educational Qualifications </legend><br><br>
+        Degree : <select>
+            <option value="Select Group">Select Group
+            </option>
+            <optgroup label ="UG">
+                <option value="BE"> BE
+                </option>
+                <option value="BTech"> BTech
+                </option>
+                <option value="BSc"> BSc
+                </option>
+                <option value="BA"> BA
+                </option>
+                <option value="BCA"> BCA
+                </option>
+                <option value="BBA"> BBA
+                </option>
+                <option value="Others"> 
+                </option>
+            </optgroup>
+            <optgroup label="PG">
+                <option value="ME"> ME
+                </option>
+                <option value="MTech"> MTech
+                </option>
+                <option value="MSc"> MSc
+                </option>
+                <option value="MA"> MA
+                </option>
+                <option value="MCA"> MCA
+                </option>
+                <option value="MBA"> MBA
+                </option>
+                <option value="Others"> 
+                </option>
+            </optgroup>
+            <optgroup label="PhD">
+                <option value="Engineering"> Engineering
+                </option>
+                <option value="Science"> Science
+                </option>
+                <option value="Management"> Management
+                </option>
+                <option value="Others"> 
+                </option>
+            </optgroup>
+        </select>
+        
+        Engineering:<select>
+            <option value="Select Group">Select Group
+            </option>
+            <option value="CSE"> CSE
+            </option>
+            <option value="ECE"> ECE
+            </option>
+            <option value="EEE"> EEE
+            </option>
+            <option value="CIVIL"> CIVIL
+            </option>
+            <option value="MECH"> MECH
+            </option>
+        </select> 
+        </fieldset><br><br><br>
+
+        Hobbies : <input type="checkbox">Playing Chess
+        <input type="checkbox">Reading Books <br><br>
+        Favourite color: <input type="color"> <br><br>
+        <p style="color:red;">Address</p><br>
+        <textarea rows="3" cols="100"></textarea><br><br>
+        Attach Resume : <input type="text"><input type="file"><button>Submit</button><br>
+          <br>
+        <a href="My Space.html">My Space</a>
+    </body>
+    </html>
