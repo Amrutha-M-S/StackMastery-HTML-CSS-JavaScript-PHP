@@ -1,0 +1,340 @@
+<!--
+1) Design a webpage for Pet animals and apply style using internal CSS 
+Apply rainbow effect to any heading
+Increase the size and change the color of any heading (use 4 different sizes and 4 
+different colors using 4 different color formats)
+Descriptions should be in multiple column format
+-->
+
+<head>
+    <title>Amrutha MS</title>
+
+    <style>
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 500px;
+            border-radius: 500px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .para {
+            column-count: 2;
+            column-rule-color: black;
+
+            column-rule-width: 10px;
+        }
+
+        .rainbow-text {
+            background-image: linear-gradient(to left, violet, indigo, blue, green,
+                    yellow, orange, red);
+        }
+
+        .headings {
+            font-size: 100%;
+            animation-name: fontChange;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fontChange {
+            0% {
+                font-family: 'Major Mono Display', monospace;
+                color: rgb(127, 255, 212);
+                font-size: 150%;
+            }
+
+            25% {
+                font-family: 'Helvetica', serif;
+                color: #75D4C4;
+                font-size: 175%;
+            }
+
+            70% {
+                font-family: 'Ranchers', serif;
+                color: #000080;
+                font-size: 175%;
+            }
+
+            100% {
+                font-family: 'Bitter', monospace;
+                color: lightpink;
+                font-size: 150%;
+            }
+
+        }
+    </style>
+</head>
+<div class="logo">
+    <img src="logo.jpg">
+</div>
+
+<body>
+    <div class="logo">
+        <img src="p1.jpg">
+    </div>
+    <hr>
+    <h1 class="rainbow-text"> PET ANIMALS</h1>
+    <hr>
+    <section>
+        <div>
+            <h1 class="headings">Dogs</h1>
+            <p class="para">
+                One of the reasons why dogs make good pets is because they help with loneliness. <br>
+                There are times in life where we are not surrounded by lots of friends and family members. <br>
+                During these times, having a dog as a companion can be very comforting.<br>
+                Dogs love being around their owners and love to please them.<br>
+            </p>
+            <hr>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h1 class="headings">
+                Cats
+            </h1>
+            <p class="para">
+                Cats are easy to care for Unlike dogs, cats do not require walk. <br>
+                Their care is fairly minimal. <br>
+                Health benefits Pet owners have reduced levels of stress.<br>
+            </p>
+            <hr>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <h1 class="headings">Birds</h1>
+            <p class="para">
+                A pet bird is friendly, gentle, and well-suited to being a companion. <br>
+                These traits are important for people with limited pet bird experience. <br>
+                It's easier to bond with and care for an animal that has a naturally friendly disposition, <br>
+                rather than one that tends to be timid. <br>
+            </p>
+            <hr>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+
+
+<!--
+2) The following are the daily temperature recordings of NEWYORK city (In Fahrenheit) 
+55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65 
+Your JavaScript program should count and print the number of HOT days (High Temperature: 85 or higher), 
+the number of PLEASANT days (High temperature: 60-84) and the number of COLD days (High temperature<60) in the city. 
+It should also display the category of each temperature in an HTML Table.
+
+-->
+
+<html>
+
+<head>
+    <title>Amrutha MS</title>
+    <script>
+        function count() {
+            var hot = 0,
+                pld = 0,
+                cold = 0;
+            var temp = [55, 62, 68, 74, 59, 45, 41, 58, 60, 67, 65, 78, 82, 88, 91,
+                92, 90, 93, 87, 80, 78, 79, 72, 68, 61, 59, 55, 65];
+            var table = document.getElementById("TemperatureTable");
+            var n = temp.length;
+            var k = 1;
+            for (i = 0; i < n; i++) {
+                if (temp[i] > 85) {
+                    var row = table.insertRow(k);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = temp[i];
+                    cell2.innerHTML = "Hot day";
+                    k++;
+                    hot++;
+                } else if (temp[i] > 60 && temp[i] < 85) {
+                    var row = table.insertRow(k);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = temp[i];
+                    cell2.innerHTML = "Pleasant day";
+                    k++;
+                    pld++;
+                } else if (temp[i] < 60) {
+                    var row = table.insertRow(k);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = temp[i];
+                    cell2.innerHTML = "Cold day";
+                    k++;
+                    cold++;
+                }
+                document.getElementById("hd").value = hot;
+                document.getElementById("pd").value = pld;
+                document.getElementById("cd").value = cold;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f1">
+        <table border="3">
+            <caption>Weather Table</caption>
+            <tr>
+                <th>
+                    <a href="temperatures.html">Temperature</a>
+                </th>
+                <th>Range</th>
+                <th>Values for the week</th>
+            </tr>
+            <tr>
+                <th>
+                    <b>Hot</b>
+                </th>
+                <th>&gt;85&#8457;</th>
+                <th>
+                    <input type="text" id="hd" name="hd">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <b>Pleasant</b>
+                </th>
+                <th>60-84&#8457;</th>
+                <th>
+                    <input type="text" id="pd" name="pd" />
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <b>Cold</b>
+                </th>
+                <th>&lt;60&#8457;</th>
+                <th>
+                    <input type="text" id="cd" name="cd" />
+                </th>
+            </tr>
+        </table>
+        <br><br>
+        <input type="button" onclick="count()" value="Count and print">
+    </form>
+    <table align="center" id="TemperatureTable" border="5px">
+        <tr>
+            <th>Temperature(in F)</th>
+            <th>Category</th>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<!--
+    3) Use Javascript to develop the web page as given in Fig.1 to calculate and display the Body Mass Index (BMI) and display the adult’s status through a popup box. 
+    For example, the BMI rate of the men is 21, and then prints the status through a popup box as “Ideal Range” by triggering the event on a “Calculate” button. 
+    Check the number format validation when an input field gets focus. Also change the color of the BMI text box on mouse over.
+-->
+
+<html>
+
+<head>
+    <title>Amrutha MS</title>
+    <script>
+        function calc() {
+            var weight = parseInt(document.getElementById("wt").value);
+            var height = parseInt(document.getElementById("ht").value);
+            var bmi;
+            var g = document.getElementById("gen");
+            var opt = g.options[g.selectedIndex].value;
+            bmi = (703 * weight) / (height * height);
+            document.getElementById("res").value = bmi;
+            if (opt == "Female") {
+                if (bmi <= 17.50) {
+                    alert("Anorexia");
+                } else if (bmi >= 17.51 && bmi <= 19.10) {
+                    alert("Underweight");
+                } else if (bmi >= 19.11 && bmi <= 25.80) {
+                    alert("Ideal range");
+                } else if (bmi >= 25.81 && bmi <= 27.30) {
+                    alert("Marginally overweight range");
+                } else if (bmi >= 27.31 && bmi <= 32.30) {
+                    alert("Overweight range");
+                } else if (bmi > 32.30) {
+                    alert("Very overweight or Obese range")
+                }
+            }
+            if (opt == "Male") {
+                if (bmi <= 17.50) {
+                    alert("Anorexia");
+                } else if (bmi >= 17.501 && bmi <= 20.70) {
+                    alert("Underweight");
+                } else if (bmi >= 20.71 && bmi <= 26.40) {
+                    alert("Ideal range");
+                } else if (bmi >= 26.41 && bmi <= 27.80) {
+                    alert("Marginally overweight range");
+                } else if (bmi >= 27.81 && bmi <= 31.10) {
+                    alert("Overweight range");
+                } else if (bmi > 31.10) {
+                    alert("Very overweight or Obese range")
+                }
+            }
+        }
+    </script>
+    <style>
+        tr {
+            border: 4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="4px">
+        <form>
+            <tr>
+                <td>BMI Calculator
+                    <select id="gen">
+                        <option value="Male" selected>Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr align="left">
+                <th>
+                    <label for="wt">Enter Your Weight: </label>
+                    <br> in pounds <br>
+                    <input type="text" name="wt" id="wt">
+                </th>
+            </tr>
+            <tr align="left">
+                <th>
+                    <label for="hei">Enter Your Height: </label><br> (feets)
+                    <input type="text" name="htf" id="htf"> <br>
+                    <br> (inches)
+                    <input type="text" name="ht" id="ht">
+                </th>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="Calculate" onclick="calc()">
+                </td>
+            </tr>
+            <tr>
+                <td align="right"><b>YOUR BMI</b>
+                 <input type="textbox" id="res">
+                </td>
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>
+

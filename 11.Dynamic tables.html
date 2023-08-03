@@ -1,0 +1,69 @@
+<!--
+1. Write a JavaScript to 
+(i) Create a dynamic table with two rows and two columns 
+(ii) Change the color of the Button from red to green color on Mouse Over. 
+(iii)Change the color of the Textbox from green to yellow color on Focus and display a greeting message on Change.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<style>
+    table{
+        border: 5px solid black;
+    }
+</style>
+<head>
+    <title>20BCE1665 - Amrutha MS</title>
+</head>
+
+<body>
+    <div id="dt">
+
+    </div>
+    <script>
+        var c = new Array();
+        c.push(["First Name", "Last Name"])
+        c.push(["Amrutha", "Manupati Sai"])
+        var table = document.createElement("table");
+        table.border = "2";
+        table.b
+        console.log(c);
+        var columnCount = c[0].length;
+        var row = table.insertRow(-1);
+        for (let i = 0; i < c.length; i++) {
+            row = table.insertRow(-1);
+            for (let j = 0; j < columnCount; j++) {
+                var cell = row.insertCell(-1)
+                cell.innerHTML = c[i][j];
+            }
+        }
+        var dt = document.getElementById("dt")
+        dt.innerHTML = "";
+        dt.appendChild(table);
+        var but = document.createElement("button");
+        but.innerHTML = "Click the button"
+        but.style.background = "red"
+        but.addEventListener('mouseover', function handleMouseOver() {
+            but.style.background = 'green';
+        });
+
+        but.addEventListener('mouseout', function handleMouseOut() {
+            but.style.background = 'red';
+        });
+        dt.appendChild(but)
+        var textB = document.createElement("input")
+        textB.style.background = "green"
+        textB.addEventListener('focusin',function handleFocus(){
+            textB.style.background = 'yellow'
+            textB.placeholder = "Hello!!!"
+        })
+        textB.addEventListener('focusout',function handleFocus(){
+            textB.style.background = 'green'
+            textB.placeholder = " "
+        })
+        dt.appendChild(textB)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!--Design a calculator as the image shown below. Create an external file calc.css using class and 
+    ID selector for table to apply style using font and background. Link the calc.css file to the calculator.html file. 
+    Also, use suitable property to change the color of the buttons when mouse over the buttons.-->
+
+
+
+<html dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Amrutha MS</title>
+    <link rel="stylesheet" href="calc_lab4_20bce1665.css">
+</head>
+
+<body>
+
+    <table class="calculator">
+        <tr>
+            <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+            <td colspan="3"> <input class="display-box" type="text" id="result" /> </td>
+        </tr>
+        <tr>
+        <tr>
+            <td> <input type="button" value="7" onclick="display('7')" /> </td>
+            <td> <input type="button" value="8" onclick="display('8')" /> </td>
+            <td> <input type="button" value="9" onclick="display('9')" /> </td>
+            <td> <input type="button" value="+" onclick="display('+')" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="4" onclick="display('4')" /> </td>
+            <td> <input type="button" value="5" onclick="display('5')" /> </td>
+            <td> <input type="button" value="6" onclick="display('6')" /> </td>
+            <td> <input type="button" value="-" onclick="display('-')" /> </td>
+        </tr>
+        <td> <input type="button" value="1" onclick="display('1')" id="b" /> </td>
+        <td> <input type="button" value="2" onclick="display('2')" /> </td>
+        <td> <input type="button" value="3" onclick="display('3')" /> </td>
+        <td> <input type="button" value="/" onclick="display('/')" /> </td>
+        </tr>
+        <tr>
+            <td> <input type="button" value="0" onclick="display('0')" /> </td>
+            <td> <input type="button" value="." onclick="display('.')" /> </td>
+            <!-- calculate() function evaluates the mathematical expression -->
+            <td> <input type="button" value="=" onclick="calculate()" id="bn" /> </td>
+            <td> <input type="button" value="*" onclick="display('*')" /> </td>
+        </tr>
+    </table>
+</body>
+
+</html>

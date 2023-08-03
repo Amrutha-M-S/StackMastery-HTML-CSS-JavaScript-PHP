@@ -1,0 +1,40 @@
+<!--
+  Devise a program to withdraw the amount from the bank account. While withdraw, the program should check the amount in the account. 
+  If the amount in the account is greater than the amount entered then raise the 
+  exception “Amount withdraw failure” else withdraw the amount.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>20BCE1665 - Amrutha MS</title>
+    <script>
+      function Withdraw() {
+        var amount = document.getElementById("a").value;
+        var withdraw = document.getElementById("w").value;
+        var remain = amount - withdraw;
+        try {
+          if (remain >= 0) {
+            document.getElementById("r").value = remain;
+          } else {
+            throw "Amount withdraw failure";
+          }
+        } catch (err) {
+          alert(err);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <label for="a">Amount in the account: </label>
+      <input type="text" id="a" /><br /><br />
+      <label for="w">Amount to be withdrawn: </label>
+      <input type="text" id="w" /><br /><br />
+      <label for="r">Amount left after withdrawing: </label>
+      <input type="text" id="r" />
+      <button type="button" onclick="Withdraw()">Withdraw</button>
+    </form>
+    <p></p>
+  </body>
+</html>

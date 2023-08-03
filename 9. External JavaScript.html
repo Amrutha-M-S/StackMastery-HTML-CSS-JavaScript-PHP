@@ -1,0 +1,32 @@
+<!--
+A circus has an entry ticket booth. Visitors come to the booth, and order tickets for adults and children. 
+The booth attendant collects the entry fee, and prints out the tickets. 
+Write a JavaScript program (External) to display the total amount in a given text box on clicking ‘Total’ button. 
+Add CSS to apply necessary styles
+Input box color: blue, text color: white
+Output box color: green, text color: white
+Button color: yellow, text color: brown
+
+-->
+
+<html>
+
+<head>
+    <title>Amrutha MS</title>
+    <script type="text/javascript" src="ticket.js"></script>
+</head>
+
+<body>
+    <form>
+        <h1><i><b>Ticket Booth</b></i></h1><br>
+        Adults(Rs. 10 each)<br>
+        <input type="text" id="adult" /><br><br>
+        Children(Rs. 5 each)<br>
+        <input type="text" id="children" /><br>
+        <br>
+        <input type="button" value="Total" onclick="calc_price()" />
+        <input type="text" id="output" />
+    </form>
+</body>
+
+</html>

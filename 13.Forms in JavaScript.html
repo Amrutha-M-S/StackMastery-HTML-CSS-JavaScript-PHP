@@ -1,0 +1,298 @@
+<!--
+Design the below form and do the following 
+(i) Set the timer to display the current time 
+(ii) Print the form content 
+(iii)Use getElemnetsByName to display Gender, Country and Preferences 
+(iv)Validate:-
+(a) All Mandatory Fields (represented by *) 
+(b) Name should not exceed 15 characters 
+(c) Address – to be specified in Text Area 
+(d) Zip code should be numeric and validated the maximum digits 
+(e) Phone numbers should be numeric and validated the maximum digits 10 
+(f) e-mail syntax should be validated 
+(g) Password should contain a number, character & a special character and length should not exceed 15 and recede 8 
+(h) PAN card number – Textbox (validate such that the PAN number is 10 digits and follows the pattern)
+
+-->
+
+<html>
+
+<head>
+    <title>Amrutha MS</title>
+    <style>
+        .required {
+            color: red;
+        }
+
+        .errorMsg {
+            color: rgb(188, 22, 77);
+        }
+
+        .errorBox {
+            border: 5px solid red;
+        }
+
+        table {
+            border: 0;
+        }
+
+        td {
+            margin: 0;
+            padding: 5px 10px;
+        }
+
+        #time {
+            text-align: center;
+            font-size: larger;
+            width: 150px;
+            height: 30px;
+            border: 2px solid black;
+            float: right;
+            margin-right: 15px;
+        }
+
+        div {
+            width: 800px;
+            border: 2px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = init;
+        setInterval(currentTime, 1000);
+        function currentTime() {
+            let date = new Date();
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            let session = "AM";
+            if (hh == 0) {
+                hh = 12;
+            }
+            if (hh > 12) {
+                hh = hh - 12;
+                session = "PM";
+            }
+            hh = (hh < 10) ? "0" + hh : hh;
+            mm = (mm < 10) ? "0" + mm : mm;
+            ss = (ss < 10) ? "0" + ss : ss;
+            let time = "Time:" + hh + ":" + mm + ":" + ss + " " + session;
+            document.getElementById("time").innerText = time;
+        }
+        function init() {
+            document.getElementById("formTest").onsubmit = validateForm;
+            document.getElementById("btnReset").onclick = clearForm;
+            document.getElementById("txtName").focus();
+        }
+        function validateForm(theForm) {
+            with (theForm) {
+                return (isNotEmpty(txtName, "Please enter your name!", elmNameError)
+                    && isNumeric(txtZipcode, "Please enter a 6-digit zip code!", elmZipcodeError)
+                    && isLengthMinMax(txtZipcode, 6, 6, "Please enter a 6-digit zip code!", elmZipcodeError)
+                    && isSelected(selCountry, "Please make a selection!", elmCountryError)
+                    && isChecked("gender", "Please check a gender!", elmGenderError)
+                    && isChecked("color", "Please check a color!", elmColorError)
+                    && isNumeric(txtPhone, "Please enter a valid phone number!", elmPhoneError)
+                    && isValidEmail(txtEmail, "Enter a valid email!", elmEmailError)
+                    && isValidPassword(txtPassword, "Password shall be 6-8 characters!", elmPasswordError)
+                    && verifyPassword(txtPassword, txtPWVerified, "Different from new password!", elmPWVerifiedError));
+            }
+        }
+        function postValidate(isValid, errMsg, errElm, inputElm) {
+            if (!isValid) {
+                if (errElm !== undefined && errElm !== null && errMsg !== undefined && errMsg !== null) {
+                    errElm.innerHTML = errMsg;
+                }
+                if (inputElm !== undefined && inputElm !== null) {
+                    inputElm.classList.add("errorBox");
+                    inputElm.focus();
+                }
+            }
+            else {
+                if (errElm !== undefined && errElm !== null) {
+                    errElm.innerHTML = "";
+                } if (inputElm !== undefined && inputElm !== null) {
+                    inputElm.classList.remove("errorBox");
+                }
+            }
+        }
+        function isNotEmpty(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim() !== "");
+            postValidate(isValid, errMsg, errElm, inputElm);
+            return isValid;
+        }
+        function isNumeric(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim().match(/^\d+$/) !== null);
+            postValidate(isValid, errMsg, errElm, inputElm); return isValid;
+        }
+        function isAlphabetic(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim().match(/^[a-zA-Z]+$/) !== null);
+            postValidate(isValid, errMsg, errElm, inputElm); return isValid;
+        }
+        function isAlphanumeric(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim().match(/^[0-9a-zA-Z]+$/) !== null);
+            postValidate(isValid, errMsg, errElm, inputElm); return isValid;
+        }
+        function isLengthMinMax(inputElm, minLength, maxLength, errMsg, errElm) {
+            var inputValue = inputElm.value.trim();
+            var isValid = (inputValue.length >= minLength)
+                && (inputValue.length <= maxLength);
+            postValidate(isValid, errMsg, errElm, inputElm);
+            return isValid;
+        }
+        function isValidEmail(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim().match(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/) !== null);
+            postValidate(isValid, errMsg, errElm, inputElm);
+            return isValid;
+        }
+        function isSelected(selectElm, errMsg, errElm) {
+            var isValid = (selectElm.value !== "");
+            postValidate(isValid, errMsg, errElm, selectElm);
+            return isValid;
+        }
+        function isChecked(inputName, errMsg, errElm) {
+            var elms = document.getElementsByName(inputName);
+            var isChecked = false;
+            for (var i = 0; i < elms.length; ++i) {
+                if (elms[i].checked) {
+                    isChecked = true; break;
+                }
+            } postValidate(isChecked, errMsg, errElm, null);
+            return isChecked;
+        }
+        function isValidPassword(inputElm, errMsg, errElm) {
+            var isValid = (inputElm.value.trim().match(/^\w{6,8}$/) !== null);
+            postValidate(isValid, errMsg, errElm, inputElm);
+            return isValid;
+        }
+        function verifyPassword(pwElm, pwVerifiedElm, errMsg, errElm) {
+            var isTheSame = (pwElm.value === pwVerifiedElm.value);
+            postValidate(isTheSame, errMsg, errElm, pwVerifiedElm);
+            return isTheSame;
+        }
+        function clearForm() {
+            var elms = document.querySelectorAll('.errorBox');
+            for (var i = 0; i < elms.length; i++) {
+                elms[i].classList.remove("errorBox");
+            }
+            elms = document.querySelectorAll('[id$="Error"]');
+            for (var i = 0; i < elms.length; i++) {
+                elms[i].innerHTML = "";
+            }
+            document.getElementById("txtName").focus();
+        }
+        currentTime();
+    </script>
+</head>
+
+<body>
+    <div>
+        <p id="time" name="time"></p>
+        <h2>Test JavaScipt Form Validation</h2>
+        <span id="span"></span>
+        <form id="formTest" method="get" action="processData">
+            <table>
+                <tr>
+                    <td>
+                        <label for="txtName">Name<span class="required">*</span></label>
+                    </td>
+                    <td>
+                        <input type="text" id="txtName" name="name">
+                    </td>
+                    <td id="elmNameError" class="errorMsg">&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="txtAddress">Address</label>
+                    </td>
+                    <td><input type="text" id="txtAddress" name="address"></td>
+                    <td id="elmAddressError" class="errorMsg">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label for="txtZipcode">Zip Code<span class="required">*</span></label></td>
+                    <td><input type="text" id="txtZipcode" name="zipcode"></td>
+                    <td id="elmZipcodeError" class="errorMsg">&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Country<span class="required">*</span></td>
+                    <td>
+                        <select id="selCountry" name="country">
+                            <option value="" selected>Please select...</option>
+                            <option value="AA">India</option>
+                            <option value="BB">Bangladesh</option>
+                            <option value="CC">Germany</option>
+                        </select>
+                    </td>
+                    <td id="elmCountryError" class="errorMsg">&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender<span class="required">*</span>
+                    </td>
+                    <td>
+                        <label><input type="radio" name="gender" value="m">Male</label>
+                        <label><input type="radio" name="gender" value="f">Female</label>
+                    </td>
+                    <td>PAN No:<span class="required"></span>
+                    </td>
+                    <td>
+                        <label><input type=text>
+                    <td>
+                    <td id="elmGenderError" class="errorMsg">&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Preferences<span class="required">*</span></td>
+                    <td>
+                        <label><input type="checkbox" name="color" value="r">Red</label>
+                        <label><input type="checkbox" name="color" value="g">Green</label>
+                        <label><input type="checkbox" name="color" value="b">Blue</label>
+                    </td>
+                    <td id="elmColorError" class="errorMsg">&nbsp;
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="txtPhone">Phone<span class="required">*</span></label>
+                    </td>
+                    <td>
+                        <input type="text" id="txtPhone" name="phone">
+                    </td>
+                    <td id="elmPhoneError" class="errorMsg">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label for="txtEmail">Email<span class="required">*</span></label></td>
+                    <td><input type="text" id="txtEmail" name="email"></td>
+                    <td id="elmEmailError" class="errorMsg">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label for="txtPassword">Password (6-8 characters)<span class="required">*</span></label></td>
+                    <td><input type="password" id="txtPassword" name="password"></td>
+                    <td id="elmPasswordError" class="errorMsg">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><label for="txtPWVerified">Verify Password<span class="required">*</span></label></td>
+                    <td><input type="password" id="txtPWVerified" name="pwVerified"></td>
+                    <td id="elmPWVerifiedError" class="errorMsg">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="SEND" id="btnSubmit">&nbsp;
+                        <input type="reset" value="CLEAR" id="btnReset">
+                    </td>
+                    <td>&nbsp;
+
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

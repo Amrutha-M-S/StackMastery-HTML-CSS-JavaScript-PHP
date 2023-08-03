@@ -1,0 +1,49 @@
+<!-- 1.Apply styles using INLINE CSS to a table-->
+
+<html>
+    <head>
+    <title>20BCE1665</title>
+    <style> 
+    th{
+        color:white;
+        background-color: orange;
+        font-size: 35px;
+    }
+       td{
+        color:#66B2FF ;
+        font-size: 25px;
+       }
+       table{
+        border: 2px solid orange;
+       }
+       ul {
+            list-style: none;
+            }
+            ul li::before {
+                        content: "\2022";
+                        color: grey;
+                        font-weight: bold;
+                        display: inline-block; 
+                        width: 1em;
+                        margin-left: -1em;
+                      }
+    </style>
+    <body>
+        <table border= "2px ">
+            <tr>
+                <th>LEARN DATA SCIENCE!</th>
+            </tr>
+            <tr>
+                <td>
+                    
+                    <ul>
+                        <li>Unlimited jobs</li>
+                        <li>Best benefits anywhere</li>
+                        <li>Call now for an appoinment</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </head>
+    </html>
