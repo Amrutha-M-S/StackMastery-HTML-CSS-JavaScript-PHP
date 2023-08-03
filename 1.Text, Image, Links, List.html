@@ -1,0 +1,183 @@
+<!--Q1)
+Design a webpage (home.html) with the following features (7 marks)
+a. print your name in blue with Verdana font in the screen. Provide its title to "Welcome 
+to my page - your registration number”
+b. Print alphabets from A to F on the screen from smallest to largest, each letter with a
+different color and different font.
+c. Display your first name in bold, middle name in italics and last name in underlined 
+font format. 
+d. Print two paragraphs that describes your ambition and hobbies; ambition should be 
+highlighted with yellow color; hobbies should be italicized and bolded.
+e. Write a comment line on your code and make sure it is not displayed in the page
+f. Print (a-b)
+2=a
+2
+-2ab+b2
+and 2H2+O2=2H2O in the next line
+g. Write a C program to print your account number and balance (include Rs. Symbol) and display the code on the browser
+h. Set an image as background of the page
+i. Apply marquee for your roll number
+j. Insert any image (passport size) at the right side of the screen
+k. Display 2 paragraph contents using div.
+l. Create the link at the bottom of the page and move from bottom to top
+m. Create mailto link to any email-id
+n. Use acronym, meter, progress bar and summary -->
+
+<html>
+    <head>
+        <title>20BCE1665</title>
+    </head>
+    <BODY background="C:\Users\User\OneDrive\Desktop\wp7213366-light-colors-wallpapers.jpg">
+        <font face="verdana" size ="10" color="blue" >Amrutha MS </font> <hr>
+        <a name="top"></a>
+        <marquee>20BCE1665 </marquee><hr>
+        <img src="LOGOLAB.jpg" class="floatRight" alt=" A logo" width="100" height="100"><br>
+          <br>
+        <a href="mailto:email@example.com?subject=Mail from our Website">Send an email</a><hr>
+         <br>
+         <p>Progress bar:</p>
+         <progress value="42" max="100">42%</progress><br>
+         <br>
+         <p>Meter:</p>
+        <meter value="42" max="100">42 out of 100</meter>
+        <hr>
+        <p><b>Summary of webpage: </b></p>
+        <details>
+            <summary>Varying fonts</summary>
+            <p>Displayed letters A-F in varing font sizes and colors</p>
+          </details>
+        <details>
+            <summary>About me</summary>
+            <p>Contains my ambitions and hobbies</p>
+        </details>
+        <details>
+            <summary>Code</summary>
+            <p>Code to get account number and balance</p>
+        </details><hr>
+        <h6 style="font-family:courier; color:blue;" >A</h6>
+        <h5 style ="font-family:Arial; color:RED;">B</h5>
+        <h4 style ="font-family:Helvetica; color:greenyellow;">C</h4>
+        <h3 style ="font-family:Tahoma ; color:yellow;">D</h3>
+        <h2 style ="font-family:Times New Roman; color:purple;">E</h2>
+        <h1 style ="font-family:Georgia; color:orange;">F</h1><hr>
+        <P>
+            <B>Amrutha </B><i>Manupati </i> <u>Sai</u><br>
+             <br>
+            <mark> I want to do well in my academic and sports. As for the long time goal, i wish to get a good job and look after my sister.</mark><br>
+        </P>
+
+        <p>
+           <i><b>My hobbies are reading novels,listening to music, and singing.</b></i> <hr>
+        </p>
+        <!-- htmllab on text, image, links, lists and tables-->
+        <p> <b> (a-b) <sup>2</sup> = a <sup>2</sup> -2ab + b <sup>2</sup> </b> </p>
+        <p><b> 2H<sub>2</sub>+O<sub>2</sub>=2H<sub>2</sub>O</b></p><hr>
+        <P>
+            <b> Code to print account number, name and balance: </b><br>
+            #include &lt;studio.h&gt;<br>
+            struct bank<br>
+            {<br>
+                int acc_no;<br>
+                char name[20];<br>
+                int bal;<br>
+           }<br>
+           void check(struct bank b[],int n) <br>
+           {<br>
+                int i;<br>
+                printf("\nCustomer Details whose Balance &lt; 100 &#8377; \n"); <br>
+                printf("----------------------------------------------\n");<br>
+                for(i=0;i &lt; n;i++)<br>
+                {<br>
+                     if(b[i].bal &lt; 100)<br>
+                     {<br>
+                          printf("Account Number : %d\n",b[i].acc_no);<br>
+                          printf("Name           : %s\n",b[i].name);<br>
+                          printf("Balance        : %d\n",b[i].bal);<br>
+                          printf("------------------------------\n");<br>
+                     }<br>
+                }<br>
+           }<br>
+           int main()<br>
+           {<br>
+                int i;<br>
+                for(i=0;i &lt;3;i++)<br>
+                {<br>
+                     printf("Enter Details of Customer %d\n",i+1);<br>
+                     printf("------------------------------\n");<br>
+                     printf("Enter Account Number : ");<br>
+                     scanf("%d",&amp;b[i].acc_no);<br>
+                     printf("Enter Name           : ");<br>
+                     scanf("%s",b[i].name);<br>
+                     printf("Enter Balance        : ");<br>
+                     scanf("%d",&amp;b[i].bal);<br>
+                     printf("------------------------------\n");<br>
+                }<br>
+                check(b,3); <br>
+                return 0;<br>
+           }<br>
+            <br>
+        </P>
+        <p><b>Example of output:</b></p>
+        <p>Account Number:209765397<br>
+           Name: Amrutha MS<br>
+           Balance: &#8377; 2000<br>
+        </p><hr>
+        <p> <b>HTML acronym</b>
+            <acronym title="HyperText Markup Language">HTML</acronym>
+        </p>
+        <div class="content">
+            <p>
+                <b>Paragraphs using div tag:</b><br>
+                HTML (HyperText Markup Language) is the code that is used to structure a web page and its content. <br>
+                For example, content could be structured within a set of paragraphs, a list of bulleted points, <br>
+                or using images and data tables.<br>
+                 <br>
+            </p>
+            <p>
+                The div HTML element is the generic container for flow content.<br>
+                It has no effect on the content or layout until styled in some way using CSS.<br>
+                  <br><hr>
+            </p>
+        </div>
+        <a href="#top">Go back to top of the page</a><br>
+        <a href="lab1_2_20bce1665.html">E-Greeting</a>
+         <br><hr>
+    </BODY>
+</html>
+
+<!--Q2)
+    Design an E-Greeting page (greeting.html) which has properly aligned with semantic tags.
+     Provide link from home page to greeting page and vice versa.
+-->
+
+
+
+
+<html>
+<head>
+    <title>20BCE1665 - Amrutha MS</title>
+</head>
+<body background="C:\Users\User\OneDrive\Pictures\Screenshots\floral16.jpg">
+    <a href="iwplab1.html">HOME PAGE</a>
+    <article>
+        <center>
+            <header>
+                <h1>E-Greeting</h1>
+            </header><br>
+            <br>
+            <BR>
+            <BR>
+            <BR>
+            <BR>
+            <P text-align: center>
+            <h1>Happy Anniversary</h1>
+            <h2>Wish you would continue to make most of your time and make many happy memories </h2>
+            </P>
+            <SECTION>
+                <br>
+                <img src="C:\Users\User\OneDrive\Desktop\p1.jpg" width="250" height="250">
+            </SECTION>
+    </article>
+    </center>
+</body>
+</html>
